@@ -1,0 +1,35 @@
+<ul class="sidebar">
+    <li class="sidebar-item" [class.active]="router.isActive('dashboard', true)">
+        <a  routerLink="dashboard" href="dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            <span class="hidden sm:inline">Dashboard</span>
+        </a>
+    </li>
+    <li class="sidebar-item" [class.active]="router.isActive('employe', true)">
+        <a routerLink="employe" href="employe">
+             <i class="fas fa-users"></i>
+             <span class="hidden sm:inline">Employés</span>
+        </a>
+    </li>
+
+    <li class="sidebar-item" [class.active]="router.isActive('paie', true)">
+        <a routerLink="paie" href="paie">
+             <i class="fas fa-money-bill-wave"></i>
+             <span class="hidden sm:inline">Paie</span>
+        </a>
+    </li>
+
+    <li class="sidebar-item" [class.active]="router.isActive('conge', true)">
+        <a routerLink="conge" href="conge">
+             <i class="fas fa-umbrella-beach"></i>
+             <span class="hidden md:inline">Congés</span>
+        </a>
+    </li>
+
+    <li class="sidebar-item" [class.active]="router.isActive('formation', true)">
+        <a routerLink="formation" href="formation">
+             <i class="fas fa-graduation-cap"></i>
+             <span class="hidden sm:inline">Formations</span>
+        </a>
+    </li>
+</ul>

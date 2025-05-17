@@ -1,0 +1,162 @@
+    <div class="slide-container">
+        <app-nav-bar></app-nav-bar>
+        
+        <div class="app-container">
+            <app-side-bar></app-side-bar>
+            
+            <div class="main-content">
+                <div class="page-title">
+                    <h2 class="text-2xl font-bold text-gray-800">Gestion de la paie</h2>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        <span>Nouvelle période</span>
+                    </button>
+                </div>
+                
+                <div class="flex items-center mb-6">
+                    <label class="text-gray-700 mr-3">Période:</label>
+                    <div class="period-selector">
+                        <span class="font-medium">Avril 2023</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="status-container">
+                    <div class="status-indicator mr-6">
+                        <div class="status-dot" style="background-color: var(--accent-teal);"></div>
+                        <span>En cours de traitement</span>
+                    </div>
+                </div>
+                
+                <div class="progress-bar-container">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm text-gray-700">Progression:</span>
+                        <span class="text-sm font-medium text-gray-700">100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+                
+                <div class="action-cards">
+                    <div class="action-card">
+                        <div class="action-icon" style="background-color: rgba(77, 157, 179, 0.1); color: var(--accent-blue);">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="font-semibold mb-1">Aperçu des bulletins</h3>
+                        <p class="text-sm text-gray-600">Prévisualiser avant envoi</p>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon" style="background-color: rgba(38, 166, 154, 0.1); color: var(--accent-teal);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="font-semibold mb-1">Finaliser la paie</h3>
+                        <p class="text-sm text-gray-600">Validation définitive</p>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon" style="background-color: rgba(255, 154, 118, 0.1); color: var(--accent-orange);">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3 class="font-semibold mb-1">Envoyer les bulletins</h3>
+                        <p class="text-sm text-gray-600">Distribution par email</p>
+                    </div>
+                </div>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">Liste des employés</h3>
+                
+                <div class="employee-table">
+                    <div class="table-header">
+                        <div>Employé</div>
+                        <div>Salaire brut</div>
+                        <div>Status</div>
+                        <div>Action</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div>
+                            <div class="font-medium">Sophie Martin</div>
+                            <div class="text-xs text-gray-500">ID: 00124</div>
+                        </div>
+                        <div>
+                            <div class="font-medium">3,500 €</div>
+                        </div>
+                        <div>
+                            <div class="status-badge status-verified">Vérifié</div>
+                        </div>
+                        <div>
+                            <span class="action-link">Voir détails</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div>
+                            <div class="font-medium">Marc Dubois</div>
+                            <div class="text-xs text-gray-500">ID: 00125</div>
+                        </div>
+                        <div>
+                            <div class="font-medium">4,200 €</div>
+                        </div>
+                        <div>
+                            <div class="status-badge status-verified">Vérifié</div>
+                        </div>
+                        <div>
+                            <span class="action-link">Voir détails</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div>
+                            <div class="font-medium">Emma Laurent</div>
+                            <div class="text-xs text-gray-500">ID: 00126</div>
+                        </div>
+                        <div>
+                            <div class="font-medium">3,800 €</div>
+                        </div>
+                        <div>
+                            <div class="status-badge status-verified">Vérifié</div>
+                        </div>
+                        <div>
+                            <span class="action-link">Voir détails</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div>
+                            <div class="font-medium">Thomas Bernard</div>
+                            <div class="text-xs text-gray-500">ID: 00127</div>
+                        </div>
+                        <div>
+                            <div class="font-medium">3,950 €</div>
+                        </div>
+                        <div>
+                            <div class="status-badge status-verified">Vérifié</div>
+                        </div>
+                        <div>
+                            <span class="action-link">Voir détails</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div>
+                            <div class="font-medium">Julie Moreau</div>
+                            <div class="text-xs text-gray-500">ID: 00128</div>
+                        </div>
+                        <div>
+                            <div class="font-medium">3,100 €</div>
+                        </div>
+                        <div>
+                            <div class="status-badge status-verified">Vérifié</div>
+                        </div>
+                        <div>
+                            <span class="action-link">Voir détails</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer  class="gradient-bg-footer">
+        
+        </footer>
+    </div>

@@ -1,0 +1,380 @@
+        :root {
+            --primary: #1A363B;
+            --secondary: #FFFFFF;
+            --accent-blue: #4D9DB3;
+            --accent-teal: #26A69A;
+            --accent-orange: #FF9A76;
+            --accent-grey: #F5F7FA;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--accent-grey);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .app-container {
+            /* padding-top: 66px; */
+            
+            display: flex;
+            height: calc(100% - 80px);
+        }
+
+        .main-content {
+            /* padding-left: 220px !important; */
+            flex-grow: 1;
+            padding: 1.5rem;
+            background-color: var(--accent-grey);
+            overflow-y: auto;
+        }
+        .page-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .user-menu {
+            display: flex;
+            align-items: center;
+        }
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .notification-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            position: relative;
+        }
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: var(--accent-orange);
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-primary i {
+            margin-right: 0.5rem;
+        }
+        .btn-primary:hover {
+            background-color: #3c8ca0;
+        }
+        .training-table {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+        .table-header {
+            padding: 1rem 1.5rem;
+            background-color: var(--accent-grey);
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr 0.5fr;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .table-row {
+            padding: 1rem 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr 0.5fr;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+            transition: background-color 0.2s;
+        }
+        .table-row:hover {
+            background-color: #f8f9fa;
+        }
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        .slots-container {
+            display: flex;
+            align-items: center;
+        }
+        .slots-indicator {
+            width: 100px;
+            height: 10px;
+            background-color: #eaeaea;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+            overflow: hidden;
+        }
+        .slots-fill {
+            height: 100%;
+            background-color: var(--accent-blue);
+        }
+        .action-link {
+            color: var(--accent-blue);
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .action-link:hover {
+            opacity: 0.8;
+        }
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .category-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+        .course-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .course-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .skills-chart {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+        }
+        .radar-chart {
+            position: relative;
+            width: 250px;
+            height: 250px;
+        }
+        .radar-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(245,247,250,1) 100%);
+        }
+        .radar-level {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px dashed #ccc;
+        }
+        .radar-level-1 {
+            width: 200px;
+            height: 200px;
+        }
+        .radar-level-2 {
+            width: 150px;
+            height: 150px;
+        }
+        .radar-level-3 {
+            width: 100px;
+            height: 100px;
+        }
+        .radar-level-4 {
+            width: 50px;
+            height: 50px;
+        }
+        .radar-axis {
+            position: absolute;
+            width: 1px;
+            height: 125px;
+            background-color: #ddd;
+            top: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+        }
+        .axis-1 {
+            transform: translate(-50%, -100%) rotate(0deg);
+        }
+        .axis-2 {
+            transform: translate(-50%, -100%) rotate(72deg);
+        }
+        .axis-3 {
+            transform: translate(-50%, -100%) rotate(144deg);
+        }
+        .axis-4 {
+            transform: translate(-50%, -100%) rotate(216deg);
+        }
+        .axis-5 {
+            transform: translate(-50%, -100%) rotate(288deg);
+        }
+        .radar-label {
+            position: absolute;
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 500;
+        }
+        .label-1 {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .label-2 {
+            top: 20%;
+            right: 10%;
+        }
+        .label-3 {
+            bottom: 20%;
+            right: 10%;
+        }
+        .label-4 {
+            bottom: 20%;
+            left: 10%;
+        }
+        .label-5 {
+            top: 20%;
+            left: 10%;
+        }
+        .radar-data {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            clip-path: polygon(50% 0%, 100% 30%, 82% 90%, 18% 90%, 0% 30%);
+            background-color: rgba(77, 157, 179, 0.2);
+            border: 2px solid var(--accent-blue);
+            transform: translate(-50%, -50%);
+        }
+        .radar-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+        }
+        .point-1 {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .point-2 {
+            top: 30%;
+            right: 0%;
+            transform: translate(50%, -50%);
+        }
+        .point-3 {
+            bottom: 10%;
+            right: 18%;
+            transform: translate(50%, 50%);
+        }
+        .point-4 {
+            bottom: 10%;
+            left: 18%;
+            transform: translate(-50%, 50%);
+        }
+        .point-5 {
+            top: 30%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+        }
+        .skills-bars {
+            flex: 1;
+            padding-left: 2rem;
+        }
+        .skill-bar {
+            margin-bottom: 1rem;
+        }
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .skill-progress {
+            height: 8px;
+            background-color: #eaeaea;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .skill-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .gradient-bg-footer {
+            background: var(--primary);
+            width: 100%;
+            position: absolute;
+            height: 10px;
+             position: fixed; 
+             bottom: 0;
+        
+             
+        }
+
+
+
+        @media (max-width: 640px) {
+            .main-content {
+                padding-left: 90px !important;}
+          }
+
+          @media (max-width: 562px) {
+            .app-container {
+                padding-top: 88px;
+            }
+          }

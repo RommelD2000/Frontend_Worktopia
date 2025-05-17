@@ -1,0 +1,234 @@
+    <div class="slide-container">
+       <app-nav-bar></app-nav-bar>
+        
+        <div class="app-container">
+            <app-side-bar></app-side-bar>
+            
+            <div class="main-content">
+                <div class="page-title">
+                    <h2 class="text-2xl font-bold text-gray-800">Gestion des congés</h2>
+                </div>
+                
+                <div class="view-toggle">
+                    <div class="view-toggle-item active">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Calendrier</span>
+                    </div>
+                    <div class="view-toggle-item">
+                        <i class="fas fa-list"></i>
+                        <span>Liste</span>
+                    </div>
+                </div>
+                
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <div class="calendar-nav">
+                            <div class="calendar-nav-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </div>
+                            <div class="font-medium">Mai 2023</div>
+                            <div class="calendar-nav-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Lun</div>
+                        <div class="calendar-day-header">Mar</div>
+                        <div class="calendar-day-header">Mer</div>
+                        <div class="calendar-day-header">Jeu</div>
+                        <div class="calendar-day-header">Ven</div>
+                        <div class="calendar-day-header">Sam</div>
+                        <div class="calendar-day-header">Dim</div>
+                        
+                        <!-- First row -->
+                        <div class="calendar-day bg-gray-50">
+                            <div class="calendar-day-number text-gray-400">1</div>
+                        </div>
+                        <div class="calendar-day bg-gray-50">
+                            <div class="calendar-day-number text-gray-400">2</div>
+                        </div>
+                        <div class="calendar-day bg-gray-50">
+                            <div class="calendar-day-number text-gray-400">3</div>
+                        </div>
+                        <div class="calendar-day bg-gray-50">
+                            <div class="calendar-day-number text-gray-400">4</div>
+                        </div>
+                        <div class="calendar-day bg-gray-50">
+                            <div class="calendar-day-number text-gray-400">5</div>
+                            <div class="calendar-leave sick">M. Dubois - Maladie</div>
+                        </div>
+                        <div class="calendar-day bg-gray-50">
+                            <div class="calendar-day-number text-gray-400">6</div>
+                            <div class="calendar-leave sick">M. Dubois - Maladie</div>
+                        </div>
+                        <div class="calendar-day bg-gray-50">
+                            <div class="calendar-day-number text-gray-400">7</div>
+                        </div>
+                        
+                        <!-- Second row -->
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">8</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">9</div>
+                        </div>
+                        <div class="calendar-day bg-yellow-50">
+                            <div class="calendar-day-number">10</div>
+                            <div class="calendar-leave">S. Martin - Congés</div>
+                        </div>
+                        <div class="calendar-day bg-yellow-50">
+                            <div class="calendar-day-number">11</div>
+                            <div class="calendar-leave">S. Martin - Congés</div>
+                        </div>
+                        <div class="calendar-day bg-yellow-50">
+                            <div class="calendar-day-number">12</div>
+                            <div class="calendar-leave">S. Martin - Congés</div>
+                        </div>
+                        <div class="calendar-day bg-yellow-50">
+                            <div class="calendar-day-number">13</div>
+                            <div class="calendar-leave">S. Martin - Congés</div>
+                        </div>
+                        <div class="calendar-day bg-yellow-50">
+                            <div class="calendar-day-number">14</div>
+                            <div class="calendar-leave">S. Martin - Congés</div>
+                        </div>
+                        
+                        <!-- Third row -->
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">15</div>
+                            <div class="calendar-leave training">Formation Leadership</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">16</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">17</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">18</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">19</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">20</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="calendar-day-number">21</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pending-requests">
+                    <h3 class="text-lg font-semibold mb-3">Demandes en attente (8)</h3>
+                    
+                    <table class="request-table">
+                        <thead>
+                            <tr>
+                                <th>Employé</th>
+                                <th>Type</th>
+                                <th>Période</th>
+                                <th>Durée</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="font-medium">Sophie Martin</div>
+                                    <div class="text-xs text-gray-500">RH</div>
+                                </td>
+                                <td>
+                                    <div class="leave-type leave-paid">Congés payés</div>
+                                </td>
+                                <td>10/05 - 14/05</td>
+                                <td>5 jours</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-approve">✓ Approuver</button>
+                                        <button class="btn-reject">✗ Refuser</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="font-medium">Marc Dubois</div>
+                                    <div class="text-xs text-gray-500">Développeur</div>
+                                </td>
+                                <td>
+                                    <div class="leave-type leave-sick">Maladie</div>
+                                </td>
+                                <td>05/05 - 06/05</td>
+                                <td>2 jours</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-approve">✓ Approuver</button>
+                                        <button class="btn-reject">✗ Refuser</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3 class="text-lg font-semibold">Top services avec absences</h3>
+                        <div class="chart">
+                            <div class="chart-bar" style="height: 70%;">
+                                <div class="chart-bar-value">14</div>
+                                <div class="chart-bar-label">Dev</div>
+                            </div>
+                            <div class="chart-bar" style="height: 90%;">
+                                <div class="chart-bar-value">18</div>
+                                <div class="chart-bar-label">RH</div>
+                            </div>
+                            <div class="chart-bar" style="height: 45%;">
+                                <div class="chart-bar-value">9</div>
+                                <div class="chart-bar-label">Marketing</div>
+                            </div>
+                            <div class="chart-bar" style="height: 30%;">
+                                <div class="chart-bar-value">6</div>
+                                <div class="chart-bar-label">Finance</div>
+                            </div>
+                            <div class="chart-bar" style="height: 60%;">
+                                <div class="chart-bar-value">12</div>
+                                <div class="chart-bar-label">Commercial</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3 class="text-lg font-semibold">Périodes chargées</h3>
+                        <div class="chart">
+                            <div class="chart-bar" style="height: 60%; background-color: var(--accent-teal);">
+                                <div class="chart-bar-value">12</div>
+                                <div class="chart-bar-label">Avr</div>
+                            </div>
+                            <div class="chart-bar" style="height: 85%; background-color: var(--accent-teal);">
+                                <div class="chart-bar-value">17</div>
+                                <div class="chart-bar-label">Mai</div>
+                            </div>
+                            <div class="chart-bar" style="height: 100%; background-color: var(--accent-teal);">
+                                <div class="chart-bar-value">20</div>
+                                <div class="chart-bar-label">Juin</div>
+                            </div>
+                            <div class="chart-bar" style="height: 95%; background-color: var(--accent-teal);">
+                                <div class="chart-bar-value">19</div>
+                                <div class="chart-bar-label">Juil</div>
+                            </div>
+                            <div class="chart-bar" style="height: 90%; background-color: var(--accent-teal);">
+                                <div class="chart-bar-value">18</div>
+                                <div class="chart-bar-label">Août</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer  class="gradient-bg-footer">
+        
+    </footer>
