@@ -3,7 +3,7 @@
     background-color: white;
     border-right: 1px solid #eaeaea;
     padding: 1.5rem 0;
-    /* position: fixed; */
+    position: fixed;
     height: 100%;
 }
 .sidebar-item {
