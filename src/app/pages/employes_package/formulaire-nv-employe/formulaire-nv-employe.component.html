@@ -1,0 +1,175 @@
+
+    <div class="slide-container">
+        <app-nav-bar></app-nav-bar>
+        
+        <div class="app-container">
+           <app-side-bar></app-side-bar>
+            
+            <div class="main-content">
+                <div class="page-title">
+                    <h2 class="text-2xl font-bold text-gray-800">Ajouter un nouvel employé</h2>
+                </div>
+                
+                <form>
+                    <div class="form-container">
+                        <div class="form-section">
+                            <h3 class="form-section-title">Informations personnelles</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Prénom <span class="text-red-500">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Prénom">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Nom <span class="text-red-500">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Nom">
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Email <span class="text-red-500">*</span></label>
+                                    <input type="email" class="form-control" placeholder="email@exemple.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Téléphone</label>
+                                    <input type="tel" class="form-control" placeholder="06 12 34 56 78">
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Date de naissance</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Adresse</label>
+                                    <input type="text" class="form-control" placeholder="Adresse">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3 class="form-section-title">Documents</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Photo</label>
+                                    <div class="photo-upload">
+                                        <i class="fas fa-camera"></i>
+                                        <span class="text-xs text-gray-500">Ajouter une photo</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">CV (Curriculum Vitae) <span class="text-red-500">*</span></label>
+                                    <div class="upload-box">
+                                        <i class="fas fa-file-pdf upload-icon"></i>
+                                        <p class="font-medium">Déposez votre CV ici</p>
+                                        <p class="text-sm text-gray-500">Formats acceptés: PDF, DOC, DOCX (max 5Mo)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3 class="form-section-title">Informations professionnelles</h3>
+                            <div class="form-grid-3">
+                                <div class="form-group">
+                                    <label class="form-label">Département <span class="text-red-500">*</span></label>
+                                    <select class="form-control select-control">
+                                        <option value="">Sélectionner un département</option>
+                                        <option value="rh">Ressources Humaines</option>
+                                        <option value="it">Informatique</option>
+                                        <option value="mkt">Marketing</option>
+                                        <option value="fin">Finance</option>
+                                        <option value="com">Commercial</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Poste <span class="text-red-500">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Titre du poste">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Manager</label>
+                                    <select class="form-control select-control">
+                                        <option value="">Sélectionner un manager</option>
+                                        <option value="1">Sophie Martin</option>
+                                        <option value="2">Thomas Bernard</option>
+                                        <option value="3">Marc Dubois</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Date d'embauche <span class="text-red-500">*</span></label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Type de contrat <span class="text-red-500">*</span></label>
+                                    <select class="form-control select-control">
+                                        <option value="">Sélectionner un type</option>
+                                        <option value="cdi">CDI</option>
+                                        <option value="cdd">CDD</option>
+                                        <option value="interim">Intérim</option>
+                                        <option value="stage">Stage</option>
+                                        <option value="apprentissage">Apprentissage</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3 class="form-section-title">Informations de paie</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Salaire brut annuel <span class="text-red-500">*</span></label>
+                                    <input type="number" class="form-control" placeholder="30000">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">IBAN</label>
+                                    <input type="text" class="form-control" placeholder="FR76 XXXX XXXX XXXX XXXX XXXX XXX">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3 class="form-section-title">Configuration du compte</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Identifiant <span class="text-red-500">*</span></label>
+                                    <input type="text" class="form-control" placeholder="identifiant.utilisateur">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Mot de passe temporaire <span class="text-red-500">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Mot de passe temporaire">
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Rôle <span class="text-red-500">*</span></label>
+                                    <select class="form-control select-control">
+                                        <option value="">Sélectionner un rôle</option>
+                                        <option value="admin">Administrateur</option>
+                                        <option value="manager">Manager</option>
+                                        <option value="employee">Employé</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Statut</label>
+                                    <div class="toggle-container">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                        <span>Actif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-light">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+

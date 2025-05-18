@@ -7,6 +7,7 @@ import { PaieComponent } from './pages/paie/paie.component';
 import { CongesComponent } from './pages/conges/conges.component';
 import { FormationComponent } from './pages/formation_package/formation/formation.component';
 import { CreateFormationComponent } from './pages/formation_package/create-formation/create-formation.component';
+import { FormulaireNvEmployeComponent } from './pages/employes_package/formulaire-nv-employe/formulaire-nv-employe.component';
 
 export const routes: Routes = [
     {path : "", component:HomeComponent},
@@ -17,6 +18,7 @@ export const routes: Routes = [
      {path : "paie" ,component:PaieComponent},
      {path : "conge" ,component:CongesComponent},
      {path : "formation" ,component:FormationComponent},
-     {path : "create-formation" ,component:CreateFormationComponent}
+     {path : "create-formation" ,component:CreateFormationComponent},
+     { path : "formulaire-nv-employes", component:FormulaireNvEmployeComponent}
 
 ];
