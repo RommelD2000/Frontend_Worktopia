@@ -8,6 +8,8 @@ import { CongesComponent } from './pages/conges/conges.component';
 import { FormationComponent } from './pages/formation_package/formation/formation.component';
 import { CreateFormationComponent } from './pages/formation_package/create-formation/create-formation.component';
 import { FormulaireNvEmployeComponent } from './pages/employes_package/formulaire-nv-employe/formulaire-nv-employe.component';
+import { InterfaceEmployesComponent } from './pages/employes_package/interface-employes/interface-employes.component';
+import { ProfilEmployesComponent } from './pages/employes_package/profil-employes/profil-employes.component';
 
 export const routes: Routes = [
     {path : "", component:HomeComponent},
@@ -19,6 +21,8 @@ export const routes: Routes = [
      {path : "conge" ,component:CongesComponent},
      {path : "formation" ,component:FormationComponent},
      {path : "create-formation" ,component:CreateFormationComponent},
-     { path : "formulaire-nv-employes", component:FormulaireNvEmployeComponent}
+     { path : "formulaire-nv-employes", component:FormulaireNvEmployeComponent},
+     {path : "interface-employes", component:InterfaceEmployesComponent},
+     {path : "profil-employes", component:ProfilEmployesComponent}
 
 ];

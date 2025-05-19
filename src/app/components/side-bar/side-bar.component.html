@@ -5,6 +5,12 @@
             <span class="hidden sm:inline">Dashboard</span>
         </a>
     </li>
+    <li class="sidebar-item" [class.active]="router.isActive('Mon profil', true)">
+        <a  routerLink="profil-employes" href="profil-employes">
+            <i class="fas fa-user"></i> 
+            <span class="hidden sm:inline">Mon Profil</span>
+        </a>
+    </li>
     <li class="sidebar-item" [class.active]="router.isActive('employe', true)">
         <a routerLink="employe" href="employe">
              <i class="fas fa-users"></i>
