@@ -52,6 +52,7 @@
             margin-right: 10px;
         }
         .app-container {
+             padding-top: 66px;
             display: flex;
             height: calc(100vh - 68px);
             max-height: 652px;
@@ -100,6 +101,7 @@
             text-align: center;
         }
         .main-content {
+             padding-left: 220px !important;
             flex-grow: 1;
             padding: 1.5rem;
             overflow-y: auto;
