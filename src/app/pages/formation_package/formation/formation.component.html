@@ -1,9 +1,5 @@
-    <div class="slide-container">
-       <app-nav-bar></app-nav-bar>
-        
-        <div class="app-container">
-           <app-side-bar></app-side-bar>
-            
+
+
             <div class="main-content">
                 <div class="page-title">
                     <h2 class="text-2xl font-bold text-gray-800">Gestion des formations</h2>
@@ -12,9 +8,9 @@
                         <span>Ajouter</span>
                     </a>
                 </div>
-                
+
                 <h3 class="text-lg font-semibold mb-3">Formations à venir</h3>
-                
+
                 <div class="training-table">
                     <div class="table-header">
                         <div>Formation</div>
@@ -23,20 +19,24 @@
                         <div>Places</div>
                         <div>Action</div>
                     </div>
-                    
+
+                  @for (training of trainingList; track training.title) {
                     <div class="table-row">
-                        <div class="font-medium">Leadership</div>
-                        <div class="text-sm text-gray-600">Gestion d'équipe et développement des compétences managériales</div>
-                        <div>15/05/2023</div>
-                        <div class="slots-container">
-                            <div class="slots-indicator">
-                                <div class="slots-fill" style="width: 80%;"></div>
-                            </div>
-                            <span class="text-sm">12/15</span>
+                      <div class="font-medium">{{ training.title }}</div>
+                      <div class="text-sm text-gray-600">{{ training.description }}</div>
+                      <div>{{ training.date | date }}</div>
+                      <div class="slots-container">
+                        <div class="slots-indicator">
+                          <div class="slots-fill" style="width: 80%;"></div>
                         </div>
-                        <div class="action-link">Gérer</div>
+                        <span class="text-sm">12/{{ training.numberOfPlaces }}</span>
+                      </div>
+                      <div class="action-link">Gérer</div>
                     </div>
-                    
+
+                  }
+
+
                     <div class="table-row">
                         <div class="font-medium">Excel avancé</div>
                         <div class="text-sm text-gray-600">Maîtrise des tableaux croisés dynamiques et des macros VBA</div>
@@ -50,9 +50,9 @@
                         <div class="action-link">Gérer</div>
                     </div>
                 </div>
-                
+
                 <h3 class="text-lg font-semibold mb-3">Catalogue de formations</h3>
-                
+
                 <div class="catalog-grid">
                     <div class="category-card">
                         <div class="card-header">
@@ -61,7 +61,7 @@
                             </div>
                             <h4 class="font-semibold">Management</h4>
                         </div>
-                        
+
                         <div class="course-item">
                             <div class="text-sm">Leadership et motivation</div>
                             <div class="text-xs text-gray-500">2 jours</div>
@@ -75,7 +75,7 @@
                             <div class="text-xs text-gray-500">3 jours</div>
                         </div>
                     </div>
-                    
+
                     <div class="category-card">
                         <div class="card-header">
                             <div class="card-icon" style="background-color: rgba(38, 166, 154, 0.1); color: var(--accent-teal);">
@@ -83,7 +83,7 @@
                             </div>
                             <h4 class="font-semibold">Informatique</h4>
                         </div>
-                        
+
                         <div class="course-item">
                             <div class="text-sm">Excel avancé</div>
                             <div class="text-xs text-gray-500">2 jours</div>
@@ -97,7 +97,7 @@
                             <div class="text-xs text-gray-500">3 jours</div>
                         </div>
                     </div>
-                    
+
                     <div class="category-card">
                         <div class="card-header">
                             <div class="card-icon" style="background-color: rgba(255, 154, 118, 0.1); color: var(--accent-orange);">
@@ -105,7 +105,7 @@
                             </div>
                             <h4 class="font-semibold">Communication</h4>
                         </div>
-                        
+
                         <div class="course-item">
                             <div class="text-sm">Prise de parole en public</div>
                             <div class="text-xs text-gray-500">2 jours</div>
@@ -119,7 +119,7 @@
                             <div class="text-xs text-gray-500">3 jours</div>
                         </div>
                     </div>
-                    
+
                     <div class="category-card">
                         <div class="card-header">
                             <div class="card-icon" style="background-color: rgba(26, 54, 59, 0.1); color: var(--primary);">
@@ -127,7 +127,7 @@
                             </div>
                             <h4 class="font-semibold">Finance</h4>
                         </div>
-                        
+
                         <div class="course-item">
                             <div class="text-sm">Comptabilité générale</div>
                             <div class="text-xs text-gray-500">3 jours</div>
@@ -142,9 +142,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <h3 class="text-lg font-semibold mb-3">Suivi des compétences</h3>
-                
+
                 <div class="skills-chart">
                     <div class="chart-container">
                         <div class="radar-chart">
@@ -153,19 +153,19 @@
                             <div class="radar-level radar-level-2"></div>
                             <div class="radar-level radar-level-3"></div>
                             <div class="radar-level radar-level-4"></div>
-                            
+
                             <div class="radar-axis axis-1"></div>
                             <div class="radar-axis axis-2"></div>
                             <div class="radar-axis axis-3"></div>
                             <div class="radar-axis axis-4"></div>
                             <div class="radar-axis axis-5"></div>
-                            
+
                             <div class="radar-label label-1">Management</div>
                             <div class="radar-label label-2">Technique</div>
                             <div class="radar-label label-3">Communication</div>
                             <div class="radar-label label-4">Finance</div>
                             <div class="radar-label label-5">Langues</div>
-                            
+
                             <div class="radar-data">
                                 <div class="radar-point point-1"></div>
                                 <div class="radar-point point-2"></div>
@@ -174,7 +174,7 @@
                                 <div class="radar-point point-5"></div>
                             </div>
                         </div>
-                        
+
                         <div class="skills-bars">
                             <div class="skill-bar">
                                 <div class="skill-info">
@@ -185,7 +185,7 @@
                                     <div class="skill-fill" style="width: 80%; background-color: var(--accent-blue);"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="skill-bar">
                                 <div class="skill-info">
                                     <div class="text-sm font-medium">Technique</div>
@@ -195,7 +195,7 @@
                                     <div class="skill-fill" style="width: 90%; background-color: var(--accent-blue);"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="skill-bar">
                                 <div class="skill-info">
                                     <div class="text-sm font-medium">Communication</div>
@@ -205,7 +205,7 @@
                                     <div class="skill-fill" style="width: 65%; background-color: var(--accent-blue);"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="skill-bar">
                                 <div class="skill-info">
                                     <div class="text-sm font-medium">Finance</div>
@@ -215,7 +215,7 @@
                                     <div class="skill-fill" style="width: 45%; background-color: var(--accent-blue);"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="skill-bar">
                                 <div class="skill-info">
                                     <div class="text-sm font-medium">Langues</div>
@@ -229,8 +229,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <footer  class="gradient-bg-footer">
-        
-    </footer>
+
