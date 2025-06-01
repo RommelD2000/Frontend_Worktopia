@@ -18,7 +18,7 @@ body {
 }
 
 .app-container {
-    padding-top: 66px !important; 
+    padding-top: 66px !important;
     display: flex;
     height: calc(100% - 80px);
 }
@@ -29,6 +29,7 @@ body {
     padding: 1.5rem;
     background-color: var(--accent-grey);
     overflow-y: auto;
+  width: 100%;
 }
 .page-title {
     display: flex;
@@ -151,11 +152,11 @@ body {
     /* align-items: center; */
     /* justify-content: center; */
     height: 10px;
-     position: fixed; 
+     position: fixed;
      bottom: 0;
      /* position: absolute; bottom: 0; left: 0; */
 
-     
+
 }
 @media (max-width: 640px) {
     .main-content {
@@ -166,4 +167,4 @@ body {
     .app-container {
         padding-top: 88px;
     }
-  } 
+  }

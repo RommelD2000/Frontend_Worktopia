@@ -16,7 +16,7 @@
             align-items: center;
             min-height: 100vh;
         }
-       
+
         .app-container {
             /* border: 1px solid red; */
             padding-top: 66px;
@@ -264,11 +264,11 @@
             /* align-items: center; */
             /* justify-content: center; */
             height: 10px;
-             position: fixed; 
+             position: fixed;
              bottom: 0;
              /* position: absolute; bottom: 0; left: 0; */
-        
-             
+
+
         }
         @media (max-width: 640px) {
             .main-content {
