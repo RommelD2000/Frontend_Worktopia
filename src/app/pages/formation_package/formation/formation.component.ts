@@ -11,7 +11,7 @@ import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-formation',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, JsonPipe, DatePipe, RouterModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, DatePipe, RouterModule],
   templateUrl: './formation.component.html',
   styleUrl: './formation.component.css'
 })
