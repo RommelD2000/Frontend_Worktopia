@@ -1,0 +1,82 @@
+<div class="details-container">
+            
+     
+        <div class="main-content p-6" style="width: 100%;">
+            
+            <div class="page-title pb-5" style="text-align: center;">
+                <h2 class="text-2xl font-bold text-gray-800">Détails de la Formation : Leadership et management d'équipe</h2>
+            </div>
+            <div style="display: flex;">
+                    <div class="section border">
+                <div class="section-title">Informations Générales</div>
+                <div class="detail-item">
+                    <span class="detail-label">Catégorie:</span>
+                    <span class="detail-value">{{training?.trainingCategory}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Description:</span>
+                    <span class="detail-value">{{training?.description}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Durée:</span>
+                    <span class="detail-value">{{training?.durationInDay}}</span>
+                </div>
+            </div>
+            <div class="section border">
+                <div class="section-title">Planification</div>
+                <div class="detail-item">
+                    <span class="detail-label">Date de début:</span>
+                    <span class="detail-value">{{training?.dateDebut}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Lieu :&nbsp;</span>
+                    <span class="detail-value"> {{training?.location}}</span>
+                </div>
+               
+                <div class="detail-item">
+                    <span class="detail-label">Places disponibles:&nbsp;</span>
+                    <span class="detail-value">{{training?.numberOfPlaces}}</span>
+                </div>
+            </div>
+            </div>
+           <div style="display: flex;">
+                 <div class="section border">
+                <div class="section-title">Formateur</div>
+                <div class="detail-item">
+                    <span class="detail-label">Nom du formateur:&nbsp;</span>
+                    <span class="detail-value">{{training?.formateur?.nomFormateur}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Email: &nbsp;</span>
+                    <span class="detail-value">{{training?.formateur?.emailFormateur}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Téléphone:</span>
+                    <span class="detail-value">{{training?.formateur?.telephoneFormateur}}</span>
+                </div>
+            </div>
+            <div class="section border">
+                <div class="section-title">Documents et Coûts</div>
+                <div class="detail-item">
+                    <span class="detail-label">Coût de la formation (Fcfa):</span>
+                    <span class="detail-value">{{training?.coutFormation}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Support de formation:</span>
+                    <span class="detail-value">Télécharger le document</span>
+                </div>
+            </div>
+           </div>
+           <div style="display: flex;">
+                 <div class="section border">
+                <div class="section-title">Paramètres</div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">Inscription ouverte:</span>
+                    <span class="detail-value">{{training?.inscriptionOuverte}}</span>
+                </div>
+            </div>
+            <div class="section"></div>
+           </div>
+        </div>
+    </div>

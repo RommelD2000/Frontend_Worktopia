@@ -1,48 +1,52 @@
 
-    <div class="slide-container">
-        <app-nav-bar></app-nav-bar>
-        
-        <div class="app-container">
-           <app-side-bar></app-side-bar>
-            
             <div class="main-content">
                 <div class="page-title">
                     <h2 class="text-2xl font-bold text-gray-800">Ajouter un nouvel employé</h2>
                 </div>
                 
-                <form>
+                <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
                     <div class="form-container">
                         <div class="form-section">
                             <h3 class="form-section-title">Informations personnelles</h3>
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label class="form-label">Prénom <span class="text-red-500">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Prénom">
+                                    <input formControlName="firstName" type="text" class="form-control" placeholder="Prénom">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nom <span class="text-red-500">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Nom">
+                                    <input formControlName="lastName" type="text" class="form-control" placeholder="Nom">
                                 </div>
                             </div>
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label class="form-label">Email <span class="text-red-500">*</span></label>
-                                    <input type="email" class="form-control" placeholder="email@exemple.com">
+                                    <input formControlName="email" type="email" class="form-control" placeholder="email@exemple.com">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Téléphone</label>
-                                    <input type="tel" class="form-control" placeholder="06 12 34 56 78">
+                                    <input formControlName="phone" type="tel" class="form-control" placeholder="06 12 34 56 78">
                                 </div>
                             </div>
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label class="form-label">Date de naissance</label>
-                                    <input type="date" class="form-control">
+                                    <input formControlName="dateofbirth" type="date" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Adresse</label>
-                                    <input type="text" class="form-control" placeholder="Adresse">
+                                    <input formControlName="address" type="text" class="form-control" placeholder="Adresse">
                                 </div>
+                                <div class="form-group">
+                                    <label class="form-label">Sexe <span class="text-red-500">*</span></label>
+                                    <select formControlName="gender" class="form-control select-control">
+                                        <option value="">Sélectionner un sexet</option>
+                                        <option value="homme">Homme</option>
+                                        <option value="femme">Femme</option>
+                                       
+                                    </select>
+                                </div>
+
                             </div>
                         </div>
                         
@@ -53,7 +57,7 @@
                                     <label class="form-label">Photo</label>
                                     <div class="photo-upload">
                                         <i class="fas fa-camera"></i>
-                                        <span class="text-xs text-gray-500">Ajouter une photo</span>
+                                        <span  class="text-xs text-gray-500">Ajouter une photo</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -72,22 +76,21 @@
                             <div class="form-grid-3">
                                 <div class="form-group">
                                     <label class="form-label">Département <span class="text-red-500">*</span></label>
-                                    <select class="form-control select-control">
+                                    <select formControlName="department" class="form-control select-control">
                                         <option value="">Sélectionner un département</option>
-                                        <option value="rh">Ressources Humaines</option>
-                                        <option value="it">Informatique</option>
-                                        <option value="mkt">Marketing</option>
-                                        <option value="fin">Finance</option>
-                                        <option value="com">Commercial</option>
+                                        <option value="DATACONSULTING">Ressources Humaines</option>
+                                        <option value="FINANCE">Informatique</option>
+                                        <option value=" MARKETING">Marketing</option>
+                                        <option value="ITSOLUTIONS">Finance</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Poste <span class="text-red-500">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Titre du poste">
+                                    <input formControlName="position" type="text" class="form-control" placeholder="Titre du poste">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Manager</label>
-                                    <select class="form-control select-control">
+                                    <select formControlName="manager" class="form-control select-control">
                                         <option value="">Sélectionner un manager</option>
                                         <option value="1">Sophie Martin</option>
                                         <option value="2">Thomas Bernard</option>
@@ -98,11 +101,11 @@
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label class="form-label">Date d'embauche <span class="text-red-500">*</span></label>
-                                    <input type="date" class="form-control">
+                                    <input formControlName="dateembauche" type="date" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Type de contrat <span class="text-red-500">*</span></label>
-                                    <select class="form-control select-control">
+                                    <select formControlName="typecontrat" class="form-control select-control">
                                         <option value="">Sélectionner un type</option>
                                         <option value="cdi">CDI</option>
                                         <option value="cdd">CDD</option>
@@ -119,49 +122,16 @@
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label class="form-label">Salaire brut annuel <span class="text-red-500">*</span></label>
-                                    <input type="number" class="form-control" placeholder="30000">
+                                    <input formControlName="salairebrut" type="number" class="form-control" placeholder="30000">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">IBAN</label>
-                                    <input type="text" class="form-control" placeholder="FR76 XXXX XXXX XXXX XXXX XXXX XXX">
+                                    <input formControlName="iban" type="text" class="form-control" placeholder="FR76 XXXX XXXX XXXX XXXX XXXX XXX">
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="form-section">
-                            <h3 class="form-section-title">Configuration du compte</h3>
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label class="form-label">Identifiant <span class="text-red-500">*</span></label>
-                                    <input type="text" class="form-control" placeholder="identifiant.utilisateur">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Mot de passe temporaire <span class="text-red-500">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Mot de passe temporaire">
-                                </div>
-                            </div>
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label class="form-label">Rôle <span class="text-red-500">*</span></label>
-                                    <select class="form-control select-control">
-                                        <option value="">Sélectionner un rôle</option>
-                                        <option value="admin">Administrateur</option>
-                                        <option value="manager">Manager</option>
-                                        <option value="employee">Employé</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Statut</label>
-                                    <div class="toggle-container">
-                                        <label class="toggle">
-                                            <input type="checkbox" checked>
-                                            <span class="toggle-slider"></span>
-                                        </label>
-                                        <span>Actif</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     
                     <div class="btn-container">
@@ -170,6 +140,4 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-
+  

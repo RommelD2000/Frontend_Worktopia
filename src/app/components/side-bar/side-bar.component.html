@@ -5,12 +5,7 @@
             <span class="hidden sm:inline">Dashboard</span>
         </a>
     </li>
-   <!-- <li class="sidebar-item" [class.active]="router.isActive('Mon profil', true)">
-        <a  routerLink="profil-employes" href="profil-employes">
-            <i class="fas fa-user"></i> 
-            <span class="hidden sm:inline">Mon Profil</span>
-        </a>
-    </li>-->
+  
     <li class="sidebar-item" [class.active]="router.isActive('employe', true)">
         <a routerLink="employe" href="employe">
              <i class="fas fa-users"></i>
@@ -38,4 +33,36 @@
              <span class="hidden sm:inline">Formations</span>
         </a>
     </li>
-</ul>
+</ul> -->
+
+
+
+<!-- <ul class="sidebar" style="color: black !important; ">
+  <li *ngFor="let menu of menus; let i = index" class="sidebar-item" [class.active]="router.isActive(menu.link, true)">
+    <a (click)="toggleMenu(i)" href="#">
+      <i [class]="menu.icon"></i>
+      <span class="hidden sm:inline" >{{ menu.label }}</span>
+      <i class="fas fa-chevron-down" style="float: right;"></i>  Icon pour indiquer déroulement -->
+    <!-- </a>
+    <ul *ngIf="menu.subMenu && menu.subMenu.length > 0" class="sub-menu" [style.display]="menu.isOpen ? 'block' : 'none'">
+      <li *ngFor="let sub of menu.subMenu">
+        <a [routerLink]="sub.link" href="#">{{ sub.label }}</a>
+      </li>
+    </ul>
+  </li>
+</ul> 
+
+<!-- <ul class="sidebar">
+  <li *ngFor="let menu of menus; let i = index" class="sidebar-item" [class.active]="false">
+    <a href="#" (click)="toggleMenu(i)">
+      <i [class]="menu.icon"></i>
+      <span>{{ menu.label }}</span>
+      <i class="fas fa-chevron-down" style="float: right;"></i>
+    </a>
+    <ul *ngIf="menu.subMenu.length > 0" [style.display]="menu.isOpen ? 'block' : 'none'">
+      <li *ngFor="let sub of menu.subMenu">
+        <a [routerLink]="sub.link" href="#">{{ sub.label }}</a>
+      </li>
+    </ul>
+  </li>
+</ul> -->

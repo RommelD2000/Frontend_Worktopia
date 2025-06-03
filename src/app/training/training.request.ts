@@ -1,20 +1,22 @@
-export interface TrainingDTO {
-    publicId: String;
-title: string;
-description: string;
-numberOfPlaces: number;
-date: string;
- durationInDay: number,
+   
+  
+
+
+export interface TrainingRequest {
+    title: String,
+    description: String,
+    durationInDay: number,
     durationInHours: number,
     level:String,
     dateDebut: Date,
-     location: String,
+    location: String,
     periode: String,
+    numberOfPlaces: Number,
     fichierFacultatif: String,
     coutFormation: Number,
     budgetImpute: Number,
     inscriptionOuverte: boolean,
-    formateur?: {
+        formateur?: {
         nomFormateur: string;
         telephoneFormateur: string;
         emailFormateur: string;
@@ -23,4 +25,5 @@ date: string;
     trainingCategory?: {
         name: string;
     };
+
 }

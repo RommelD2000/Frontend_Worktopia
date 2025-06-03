@@ -19,7 +19,6 @@ body {
 
 .app-container {
   padding-top: 66px !important;
-  display: flex;
   height: calc(100% - 80px);
 }
 
