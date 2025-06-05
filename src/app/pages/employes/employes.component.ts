@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavBarComponent } from "../../../components/nav-bar/nav-bar.component";
-import { SideBarComponent } from "../../../components/side-bar/side-bar.component";
-import { ApiResponse } from '../../../common/api.response';
-import { EmployeeRequest } from '../employee.request';
-import { EmployeeDTO } from '../employee.DTO';
-import { TrainingService } from '../../../training/training.service';
-import { EmployesService } from '../employes.service';
+import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
+import { SideBarComponent } from "../../components/side-bar/side-bar.component";
+import { ApiResponse } from '../../common/api.response';
+import { EmployeeRequest } from '../employes_package/employee.request';
+import { EmployeeDTO } from '../employes_package/employee.DTO';
+import { TrainingService } from '../../training/training.service';
+import { EmployesService } from '../employes_package/employes.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { EmployesComponent } from './pages/employes_package/employes/employes.component';
+import { EmployesComponent } from './pages/employes/employes.component';
 import { PaieComponent } from './pages/paie/paie.component';
 import { CongesComponent } from './pages/conges/conges.component';
 import { FormationComponent } from './pages/formation_package/formation/formation.component';
