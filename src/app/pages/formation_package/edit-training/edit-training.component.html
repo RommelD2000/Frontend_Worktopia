@@ -2,7 +2,7 @@
     <div class="page-title">
         <h2 class="text-2xl font-bold text-gray-800">Modifier une formation</h2>
     </div>
-        <form  [formGroup]="trainingForm" (ngSubmit)="editTraining()" class="form-container">
+        <form  [formGroup]="editTrainingForm"  (ngSubmit)="editTraining()" class="form-container">
             <div class="form-section">
                 <div class="form-section-title">
                     <div class="form-section-icon" style="background-color: var(--accent-blue);">
@@ -56,7 +56,7 @@
                 </div>
             </div>
             
-            <div class="form-section">
+          <div class="form-section">
                 <div class="form-section-title">
                     <div class="form-section-icon" style="background-color: var(--accent-teal);">
                         <i class="fas fa-calendar-alt"></i>
@@ -70,11 +70,7 @@
                         <input formControlName="dateDebut" type="date" class="form-input">
                     </div>
                     
-                    <!-- <div class="form-group">
-                        <label class="form-label">Date de fin</label>
-                        <input type="date" class="form-input">
-                    </div> -->
-                    
+                  
                     <div class="form-group">
                         <label class="form-label required">Lieu</label>
                         <select formControlName="location" class="form-select">
@@ -113,7 +109,7 @@
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">Type de formateur</label>
-                        <select formControlName="typFormateur" class="form-select">
+                        <select formControlName="typeFormateur" class="form-select">
                             <option value="" selected disabled>Sélectionner un type de formateur</option>
                             <option value="interne" selected>Formateur interne</option>
                             <option value="externe">Formateur externe</option>
@@ -149,40 +145,23 @@
                     <div class="form-group form-full-width">
                         <label class="form-label">Support de formation</label>
                         <div class="upload-container border-2 border-dashed border-gray-300 rounded p-4 flex flex-col items-center justify-center cursor-pointer relative">
-                          <!-- Icône de téléchargement -->
                           <div class="upload-icon mb-2 text-gray-500 text-3xl">
                             <i class="fas fa-cloud-upload-alt"></i>
                           </div>
-                          <!-- Texte -->
                           <div class="mb-2 text-center">Glissez et déposez vos documents ici</div>
                           <div class="text-sm text-gray-500 mb-2">ou</div>
                           
-                          <!-- Bouton personnalisé -->
                           <label class="btn btn-secondary mt-2 cursor-pointer px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 flex items-center">
                             <i class="fas fa-folder-open mr-2"></i>
                             Parcourir les fichiers
                             <input formControlName="fichierFacultatif" type="file" class="hidden" accept=".pdf,.pptx,.docx" multiple />
                           </label>
                           
-                          <!-- Infos sur formats -->
+                         
                           <div class="form-help mt-2 text-sm text-gray-500">Formats acceptés: PDF, PPT, DOCX (max: 20Mo)</div>
                         </div>
                       </div>
-                    <!-- <div class="form-group form-full-width">
-                        <label class="form-label">Support de formation</label>
-                        <div class="upload-container">
-                            <div class="upload-icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                            </div>
-                            <div class="mb-2">Glissez et déposez vos documents ici</div>
-                            <div class="text-sm text-gray-500">ou</div>
-                            <button class="btn btn-secondary mt-2">
-                                <i class="fas fa-folder-open"></i>
-                                Parcourir les fichiers
-                            </button>
-                            <div class="form-help mt-2">Formats acceptés: PDF, PPT, DOCX (max: 20Mo)</div>
-                        </div>
-                    </div> -->
+                  
                     
                     <div class="form-group">
                         <label class="form-label">Coût de la formation (Fcfa)</label>
@@ -200,13 +179,7 @@
                     </div>
                     
                     <div class="form-group switch-container">
-                        <!-- <div class="switch-label">
-                            <div class="form-label mb-0">Visibilité dans le catalogue</div>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label> -->
+                      
                     </div>
                     
                     <div class="form-group switch-container">
@@ -219,7 +192,7 @@
                         </label>
                     </div>
                 </div>
-            </div>
+            </div> 
             
             <div class="form-buttons">
                 <button class="btn btn-secondary">

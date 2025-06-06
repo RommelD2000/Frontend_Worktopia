@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TrainingRequest } from '../../../training/training.request';
 import { Router } from '@angular/router';
@@ -14,10 +14,11 @@ import { TrainingService } from '../../../training/training.service';
 })
 export class AddTrainingComponent {
   trainingForm!:FormGroup
+  private router=inject(Router)
   constructor(
     private fb:FormBuilder,
     private trainingService:TrainingService,
-    private router:Router
+    
   ){}
 
   ngOnInit():void{
@@ -43,11 +44,9 @@ export class AddTrainingComponent {
     });
   }
 
-  // constructor(private fb:FormBuilder)
-  saveTraining():void{
-    // console.log(
-      // this.trainingForm.value,
 
+  saveTraining():void{
+   
 
       const formData = this.trainingForm.value
 
@@ -78,13 +77,15 @@ export class AddTrainingComponent {
   };
 
 
-      // this.trainingService.addTraining(this.trainingForm.value as TrainingRequest).subscribe({
-      //   next:(data)=>this.router.navigateByUrl("/formation")
-      // })
-
+      
       this.trainingService.addTraining(trainingRequest).subscribe({
-        next:(data)=>this.router.navigateByUrl("/formation")
+        next:(data)=>{
+          this.router.navigateByUrl("/formation")
+        }
       })
     // )
   }
+
+
+
 }

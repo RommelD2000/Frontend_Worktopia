@@ -25,6 +25,7 @@ export class EmployesService {
 
 
   save(data: any): Observable<any> {
+    console.log(data)
       return this.http.post(this.buildUrl(AUTH_CONFIG.END_POINTS.SAVE), data);
     }
  

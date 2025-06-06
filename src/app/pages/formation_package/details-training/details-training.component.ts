@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { TrainingService } from '../../../training/training.service';
+import { TrainingDTO } from '../../../training/TrainingDTO';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiResponse } from '../../../common/api.response';
 
 @Component({
   selector: 'app-details-training',
@@ -8,5 +12,22 @@ import { Component } from '@angular/core';
   styleUrl: './details-training.component.css'
 })
 export class DetailsTrainingComponent {
+  public training: TrainingDTO | null = null;
 
+  constructor(
+    private trainingService: TrainingService, 
+    private router:Router, 
+    private route:ActivatedRoute) {
+    }
+
+
+   ngOnInit():void{
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    console.log(id)
+    this.trainingService.getTrainingbyId(id).subscribe(
+      data => this.training = data,
+      error => console.error('Erreur lors de la récupération de l\'utilisateur', error)
+    );
+   
+}
 }

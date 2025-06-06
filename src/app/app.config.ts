@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     provideRouter(routes),
-    provideHttpClient(withFetch(),
+    provideHttpClient(
     withInterceptorsFromDi()),
     provideClientHydration(),
     provideZoneChangeDetection({ eventCoalescing: true })
