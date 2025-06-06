@@ -36,7 +36,7 @@
                     <div>Statut</div>
                     <div>Action</div>
                 </div>
-
+@for (employe of employesList; track employe.firstName) {
                 <div class="table-row">
                     <div>
                         <div class="employee-avatar">
@@ -44,119 +44,39 @@
                         </div>
                     </div>
                     <div>
-                        <div class="font-medium">Sophie Martin</div>
-                        <div class="text-xs text-gray-500">sophie.martina.com</div>
+                        <div class="font-medium">{{employe.firstName}} &nbsp;{{employe.lastName}}</div>
+                        <div class="text-xs text-gray-500">{{employe.email}}</div>
                     </div>
                     <div>
-                        <div>Responsable RH</div>
-                        <div class="text-xs text-gray-500">Ressources Humaines</div>
+                        <div>{{employe.position}}</div>
+                        <div class="text-xs text-gray-500">{{employe.department}}</div>
                     </div>
                     <div>
                         <div class="status-badge status-active">Actif</div>
                     </div>
                     <div>
-                        <div class="action-dots">
-                            <i class="fas fa-ellipsis-h text-gray-500"></i>
-                        </div>
-                    </div>
-                </div>
+                        <div class="action-link">
 
-                <div class="table-row">
-                    <div>
-                        <div class="employee-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Marc Dubois</div>
-                        <div class="text-xs text-gray-500">marc.duboisa.com</div>
-                    </div>
-                    <div>
-                        <div>Développeur Senior</div>
-                        <div class="text-xs text-gray-500">Informatique</div>
-                    </div>
-                    <div>
-                        <div class="status-badge status-active">Actif</div>
-                    </div>
-                    <div>
-                        <div class="action-dots">
-                            <i class="fas fa-ellipsis-h text-gray-500"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div>
-                        <div class="employee-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Emma Laurent</div>
-                        <div class="text-xs text-gray-500">emma.laurenta.com</div>
-                    </div>
-                    <div>
-                        <div>Chargée de Marketing</div>
-                        <div class="text-xs text-gray-500">Marketing</div>
-                    </div>
-                    <div>
-                        <div class="status-badge status-leave">Congé</div>
-                    </div>
-                    <div>
-                        <div class="action-dots">
-                            <i class="fas fa-ellipsis-h text-gray-500"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div>
-                        <div class="employee-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Thomas Bernard</div>
-                        <div class="text-xs text-gray-500">thomas.bernarda.com</div>
-                    </div>
-                    <div>
-                        <div>Analyste Financier</div>
-                        <div class="text-xs text-gray-500">Finance</div>
-                    </div>
-                    <div>
-                        <div class="status-badge status-active">Actif</div>
-                    </div>
-                    <div>
-                        <div class="action-dots">
-                            <i class="fas fa-ellipsis-h text-gray-500"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div>
-                        <div class="employee-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Julien Petit</div>
-                        <div class="text-xs text-gray-500">julien.petita.com</div>
-                    </div>
-                    <div>
-                        <div>Assistant Commercial</div>
-                        <div class="text-xs text-gray-500">Commercial</div>
-                    </div>
-                    <div>
-                        <div class="status-badge status-active">Actif</div>
-                    </div>
-                    <div>
-                        <div class="action-dots">
-                            <i class="fas fa-ellipsis-h text-gray-500"></i>
-                        </div>
-                    </div>
+                <div class="action-buttons">
+                    <a class="btn show" title="Show">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a   class="btn update" title="Update">
+                        <i class="fas fa-edit"></i> 
+                    </a>
+                    <!-- <a href="/delete-training" class="btn delete" title="Delete">
+                        <i class="fas fa-trash-alt"></i> 
+                    </a> -->
+                    <button class="btn delete" ><i class="fas fa-trash-alt"></i></button> 
+                    
+                    
                 </div>
             </div>
+
+                    </div>
+                </div>
+
+            }
 
             <div class="pagination">
                 <div class="page-item">
