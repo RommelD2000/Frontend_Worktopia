@@ -14,6 +14,7 @@ import {authGuard} from './core/guards/auth.guard';
 import { AddTrainingComponent } from './pages/formation_package/add-training/add-training.component';
 import { DetailsTrainingComponent } from './pages/formation_package/details-training/details-training.component';
 import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.components';
+import { UpdateEmployeComponent } from './pages/employes_package/update-employee/update-employe/update-employe.component';
 // import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.component';
 
 
@@ -43,7 +44,8 @@ export const routes: Routes = [
      {path : "create-formation" ,component:CreateFormationComponent},
      { path : "formulaire-nv-employes", component:FormulaireNvEmployeComponent},
      {path : "interface-employes", component:InterfaceEmployesComponent},
-     {path : "profil-employes", component:ProfilEmployesComponent}
+     {path : "profil-employes", component:ProfilEmployesComponent},
+     {path : "update-employe", component:UpdateEmployeCo;ponent}
 */
   {
     path:'',
@@ -107,6 +109,17 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
 
+  {path : "profil-employes", 
+    component:ProfilEmployesComponent
+  },
+
+  {path : "update-employe/:id", 
+    component:UpdateEmployeComponent
+  },
+
+  {path : "interface-employes", 
+    component:InterfaceEmployesComponent
+  },
     ]
   }
 

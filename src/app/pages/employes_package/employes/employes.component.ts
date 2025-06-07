@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { EmployeeDTO } from '../employee.DTO';
 import { EmployesService } from '../employes.service';
 import { ApiResponse } from '../../../common/api.response';
@@ -8,7 +8,7 @@ import { ApiResponse } from '../../../common/api.response';
 @Component({
   selector: 'app-employes',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './employes.component.html',
   styleUrl: './employes.component.css'
 })

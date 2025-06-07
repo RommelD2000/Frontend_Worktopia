@@ -1,5 +1,5 @@
 export interface EmployeeDTO {
-  
+        dbId : number,
         firstName: String,
         lastName: String,
         email: String,
