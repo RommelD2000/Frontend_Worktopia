@@ -15,6 +15,7 @@ import { AddTrainingComponent } from './pages/formation_package/add-training/add
 import { DetailsTrainingComponent } from './pages/formation_package/details-training/details-training.component';
 import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.components';
 import { UpdateEmployeComponent } from './pages/employes_package/update-employee/update-employe/update-employe.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 // import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.component';
 
 
@@ -63,12 +64,14 @@ export const routes: Routes = [
       {
         path:'dashboard',
         component:DashboardComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        data:{expectedRole: 'ROLE_ADMIN'}
       },
       {
         path:'employe',
         component:EmployesComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        data:{expectedRole: 'ROLE_ADMIN'}
       },
       {
         path:'paie',
@@ -103,24 +106,32 @@ export const routes: Routes = [
       component:EditTrainingComponent,
         canActivate: [authGuard]
 
-     },{ 
-      path : "formulaire-nv-employes", 
+     },{
+      path : "formulaire-nv-employes",
       component:FormulaireNvEmployeComponent,
     canActivate: [authGuard]
   },
 
-  {path : "profil-employes", 
+  {path : "profil-employes",
     component:ProfilEmployesComponent
   },
 
-  {path : "update-employe/:id", 
+  {path : "update-employe/:id",
     component:UpdateEmployeComponent
   },
 
-  {path : "interface-employes", 
-    component:InterfaceEmployesComponent
+  {path : "interface-employes",
+    component:InterfaceEmployesComponent,
+    canActivate: [authGuard],
+    data:{expectedRole: 'ROLE_EMPLOYE'}
   },
-    ]
-  }
 
+
+    ]
+  },
+
+  {
+    path:'**',
+    component:NotFoundComponent
+  },
 ];
