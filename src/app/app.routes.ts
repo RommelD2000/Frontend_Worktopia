@@ -46,7 +46,7 @@ export const routes: Routes = [
      { path : "formulaire-nv-employes", component:FormulaireNvEmployeComponent},
      {path : "interface-employes", component:InterfaceEmployesComponent},
      {path : "profil-employes", component:ProfilEmployesComponent},
-     {path : "update-employe", component:UpdateEmployeCo;ponent}
+     {path : "update-employe", component:UpdateEmployeComponent}
 */
   {
     path:'',
@@ -109,7 +109,7 @@ export const routes: Routes = [
      },{
       path : "formulaire-nv-employes",
       component:FormulaireNvEmployeComponent,
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
 
   {path : "profil-employes",
