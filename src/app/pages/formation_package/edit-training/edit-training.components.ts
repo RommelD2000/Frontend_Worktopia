@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TrainingRequest } from '../../../training/training.request';
 import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { ApiResponse } from '../../../common/api.response';
 
 @Component({
   selector: 'app-edit-training',
@@ -15,8 +16,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class EditTrainingComponent {
   editTrainingForm!:FormGroup
-  // trainingRequest: TrainingRequest
-  // id!: number;
+  
 
     constructor(
       private activatedRoute: ActivatedRoute,
@@ -29,7 +29,7 @@ export class EditTrainingComponent {
     ngOnInit(){
      const id = +this.route.snapshot.paramMap.get('id')!;
     console.log(id)
-      // this.id =  this.activatedRoute.snapshot.params["id"];
+     
         
 
       this.editTrainingForm = this.fb.group({
@@ -89,7 +89,7 @@ export class EditTrainingComponent {
 
 
 this.trainingService.editTraining(+this.route.snapshot.paramMap.get('id')!, trainingRequest).subscribe({
-  next:(data)=>{
+  next:(data: ApiResponse)=>{
     this.router.navigateByUrl("formation");
   },
   error: (err) => {

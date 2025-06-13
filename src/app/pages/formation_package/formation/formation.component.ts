@@ -18,6 +18,8 @@ import { Observable } from 'rxjs';
 })
 export class FormationComponent implements OnInit {
 	trainingList: TrainingDTO[] = []
+      successMessage: String | null = null;
+
 
 	constructor(private trainingService: TrainingService,
 		private router: Router,
@@ -35,7 +37,7 @@ export class FormationComponent implements OnInit {
 				next: (result: ApiResponse) => {
 					this.trainingList = result.data as TrainingDTO[]
 				},
-				error: (err) => console.log("Erreur ICI")
+				error: (err) => console.log(err)
 			}
 		)
 	}
@@ -46,8 +48,17 @@ export class FormationComponent implements OnInit {
 			this.trainingService.deleteTraining(id).subscribe({
 				next: (result: ApiResponse) => {
 					console.log('Réponse du serveur:', result);
-					alert(result.message);
+					// alert(result.message);
 					this.getTrainings();
+            		this.successMessage = result.message;
+
+					 setTimeout(()=>{
+
+           								 this.successMessage = null
+      			  					  }, 
+									  5000
+								)
+
 				},
 				error: (err) => {
 					console.error('Erreur lors de la suppression', err);

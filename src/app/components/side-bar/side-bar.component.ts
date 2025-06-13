@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import {Router, RouterLink} from '@angular/router';
   styleUrl: './side-bar.component.css'
 })
 export class SideBarComponent {
-  constructor(public router:Router){}
+  // constructor(public router:Router){}
 
 
   // menus = [
@@ -77,4 +77,54 @@ export class SideBarComponent {
   // toggleMenu(index: number): void {
   //   this.menus[index].isOpen = !this.menus[index].isOpen;
   // }
+ // États pour gérer l'active menu / sous-menu
+  activeMenu: string | null = null;
+  
+  // Garder la trace des sous-menus ouverts
+  expandedSubmenus: Set<string> = new Set();
+
+  // Pour l'active élément dans les sous-menus
+  activeSubmenuItems: Set<string> = new Set();
+
+  // Gérer la sélection de menu principal
+  selectMenu(menu: string): void {
+    this.activeMenu = menu;
+    this.expandedSubmenus.delete(menu);
+  }
+
+  // Toggle le sous-menu
+  toggleSubmenu(menu: string): void {
+    if (this.expandedSubmenus.has(menu)) {
+      this.expandedSubmenus.delete(menu);
+    } else {
+      // Fermer tous les autres sous-menus
+      this.expandedSubmenus.clear();
+      this.expandedSubmenus.add(menu);
+    }
+    this.activeMenu = menu; // pour indiquer l'élément actif
+  }
+
+  // Vérifie si le menu est actif
+  isActive(menu: string): boolean {
+    return this.activeMenu === menu;
+  }
+
+  // Vérifie si le sous-menu est étendu
+  isSubmenuExpanded(menu: string): boolean {
+    return this.expandedSubmenus.has(menu);
+  }
+
+  // Sélectionne un item de sous-menu
+  selectSubmenuItem(item: string): void {
+    // déselectionner tous
+    this.activeSubmenuItems.clear();
+    this.activeSubmenuItems.add(item);
+    // Activer aussi le menu parent
+    // dans ce cas, vous pouvez fixer l'active menu si besoin
+  }
+
+  // Vérifier si un sous-item est actif
+  isSubmenuItemActive(item: string): boolean {
+    return this.activeSubmenuItems.has(item);
+  }
 }

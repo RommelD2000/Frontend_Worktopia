@@ -14,6 +14,7 @@ import {authGuard} from './core/guards/auth.guard';
 import { AddTrainingComponent } from './pages/formation_package/add-training/add-training.component';
 import { DetailsTrainingComponent } from './pages/formation_package/details-training/details-training.component';
 import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.components';
+import { CategoriesComponent } from './pages/formation_package/categories/categories.component';
 // import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.component';
 
 
@@ -104,6 +105,11 @@ export const routes: Routes = [
      },{ 
       path : "formulaire-nv-employes", 
       component:FormulaireNvEmployeComponent,
+    canActivate: [authGuard]
+  },
+  { 
+      path : "categories", 
+      component:CategoriesComponent,
     canActivate: [authGuard]
   },
 

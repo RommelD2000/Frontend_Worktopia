@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { TrainingRequest } from '../../../training/training.request';
 import { Router } from '@angular/router';
 import { TrainingService } from '../../../training/training.service';
+import { ApiResponse } from '../../../common/api.response';
 
 @Component({
   selector: 'app-add-training',
@@ -13,6 +14,8 @@ import { TrainingService } from '../../../training/training.service';
   styleUrl: './add-training.component.css'
 })
 export class AddTrainingComponent {
+      successMessage: String | null = null;
+
   trainingForm!:FormGroup
   private router=inject(Router)
   constructor(
@@ -22,26 +25,28 @@ export class AddTrainingComponent {
   ){}
 
   ngOnInit():void{
+    
+
     this.trainingForm = this.fb.group({
-        title:["",[Validators.required]],
-        category:["",[Validators.required]],
-        description:["",[Validators.required]],
-        durationInDay:["",[Validators.required]],
-        durationInHours:["",[Validators.required]],
-        level:["",[Validators.required]],
-        dateDebut:["",[Validators.required]],
-        location:["",[Validators.required]],
-        periode:["",[Validators.required]],
-        numberOfPlaces:["",[Validators.required]],
-        typFormateur:["",[Validators.required]],
-        nomFormateur:["",[Validators.required]],
-        emailFormateur:["",[Validators.required]],
-        telephoneFormateur:["",[Validators.required]],
-        fichierFacultatif:["",[Validators.required]],
-        budgetImpute:["",[Validators.required]],
-        coutFormation:["",[Validators.required]],
-        inscriptionOuverte:["",[Validators.required]],
-    });
+    title: ["", [Validators.required, Validators.minLength(3)]],
+    category: ["", [Validators.required]],
+    description: ["", [Validators.required, Validators.minLength(10)]],
+    durationInDay: ["", [Validators.required, Validators.pattern("^[0-9]+$"), Validators.min(1)]],
+    durationInHours: ["", [Validators.required, Validators.pattern("^[0-9]+$"), Validators.min(1)]],
+    level: ["", [Validators.required]],
+    dateDebut: ["", [Validators.required]],
+    location: ["", [Validators.required]],
+    periode: ["", [Validators.required]],
+    numberOfPlaces: ["", [Validators.required, Validators.pattern("^[0-9]+$"), Validators.min(1)]],
+    typFormateur: ["", [Validators.required]],
+    nomFormateur: ["", [Validators.required, Validators.minLength(3)]],
+    emailFormateur: ["", [Validators.required, Validators.email]],
+    telephoneFormateur: ["", [Validators.required, Validators.pattern("^[0-9]+$")]],
+    fichierFacultatif: ["", []], // Si ce champ est facultatif, ne pas ajouter Validators.required
+    budgetImpute: ["", [Validators.required]],
+    coutFormation: ["", [Validators.required, Validators.pattern("^[0-9]+(\\.[0-9]{1,2})?$")]],
+    inscriptionOuverte: ["", [Validators.required]],
+});
   }
 
 
@@ -76,16 +81,26 @@ export class AddTrainingComponent {
     }
   };
 
+  
 
-      
       this.trainingService.addTraining(trainingRequest).subscribe({
-        next:(data)=>{
-          this.router.navigateByUrl("/formation")
-        }
+        next:(result: ApiResponse )=>{
+            this.successMessage = result.message;
+          this.router.navigateByUrl("/formation"),
+          setTimeout(()=>{
+            this.successMessage = null
+          }, 10000)
+          
+        },
+        error: (err) => {
+					console.error("Erreur lors de l'ajout de la formation ", err);
+				}
       })
     // )
   }
 
 
+
+  
 
 }

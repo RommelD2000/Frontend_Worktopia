@@ -1,68 +1,128 @@
-<ul class="sidebar">
-    <li class="sidebar-item" [class.active]="router.isActive('dashboard', true)">
-        <a  routerLink="dashboard" href="dashboard">
-            <i class="fas fa-tachometer-alt"></i>
-            <span class="hidden sm:inline">Dashboard</span>
-        </a>
-    </li>
-  
-    <li class="sidebar-item" [class.active]="router.isActive('employe', true)">
-        <a routerLink="employe" href="employe">
-             <i class="fas fa-users"></i>
-             <span class="hidden sm:inline">Employés</span>
-        </a>
-    </li>
-
-    <li class="sidebar-item" [class.active]="router.isActive('paie', true)">
-        <a routerLink="paie" href="paie">
-             <i class="fas fa-money-bill-wave"></i>
-             <span class="hidden sm:inline">Paie</span>
-        </a>
-    </li>
-
-    <li class="sidebar-item" [class.active]="router.isActive('conge', true)">
-        <a routerLink="conge" href="conge">
-             <i class="fas fa-umbrella-beach"></i>
-             <span class="hidden md:inline">Congés</span>
-        </a>
-    </li>
-
-    <li class="sidebar-item" [class.active]="router.isActive('formation', true)">
-        <a routerLink="formation" href="formation">
-             <i class="fas fa-graduation-cap"></i>
-             <span class="hidden sm:inline">Formations</span>
-        </a>
-    </li>
-</ul> -->
 
 
-
-<!-- <ul class="sidebar" style="color: black !important; ">
-  <li *ngFor="let menu of menus; let i = index" class="sidebar-item" [class.active]="router.isActive(menu.link, true)">
-    <a (click)="toggleMenu(i)" href="#">
-      <i [class]="menu.icon"></i>
-      <span class="hidden sm:inline" >{{ menu.label }}</span>
-      <i class="fas fa-chevron-down" style="float: right;"></i>  Icon pour indiquer déroulement -->
-    <!-- </a>
-    <ul *ngIf="menu.subMenu && menu.subMenu.length > 0" class="sub-menu" [style.display]="menu.isOpen ? 'block' : 'none'">
-      <li *ngFor="let sub of menu.subMenu">
-        <a [routerLink]="sub.link" href="#">{{ sub.label }}</a>
-      </li>
-    </ul>
-  </li>
-</ul> 
-
-<!-- <ul class="sidebar">
-  <li *ngFor="let menu of menus; let i = index" class="sidebar-item" [class.active]="false">
-    <a href="#" (click)="toggleMenu(i)">
-      <i [class]="menu.icon"></i>
-      <span>{{ menu.label }}</span>
-      <i class="fas fa-chevron-down" style="float: right;"></i>
+<!-- sidebar.component.html -->
+<div class="sidebar">
+  <!-- Dashboard -->
+  <div class="sidebar-item"  [class.active]="isActive('dashboard')"  (click)="selectMenu('dashboard')">
+    <a routerLink="dashboard" href="dashboard" class="sidebar-item-content">
+      <i class="fas fa-tachometer-alt"></i>
+      <span>Dashboard</span>
     </a>
-    <ul *ngIf="menu.subMenu.length > 0" [style.display]="menu.isOpen ? 'block' : 'none'">
-      <li *ngFor="let sub of menu.subMenu">
-        <a [routerLink]="sub.link" href="#">{{ sub.label }}</a>
-      </li>
-    </ul>
-  </li>
-</ul> -->
+  </div>
+
+  <!-- Employés -->
+  <div class="sidebar-item has-submenu" [class.active]="isActive('employes')"  (click)="toggleSubmenu('employes')">
+    <a routerLink="employe" href="employe" class="sidebar-item-content">
+      <i class="fas fa-users"></i>
+      <span>Employés</span>
+    </a>
+    <i class="fas fa-chevron-right chevron-icon" 
+       [class.expanded]="isSubmenuExpanded('employes')"></i>
+  </div>
+  <div class="submenu" [class.expanded]="isSubmenuExpanded('employes')">
+    <!-- <div class="submenu-item" 
+         [class.active]="isSubmenuItemActive('liste-employes')"
+         (click)="selectSubmenuItem('liste-employes')">
+      <i class="fas fa-list"></i>
+      <span>Liste des employés</span>
+    </div>
+    <div class="submenu-item"
+         [class.active]="isSubmenuItemActive('ajouter-employe')"
+         (click)="selectSubmenuItem('ajouter-employe')">
+      <i class="fas fa-user-plus"></i>
+      <span>Ajouter un employé</span>
+    </div>
+    <div class="submenu-item" 
+         [class.active]="isSubmenuItemActive('profil-employes')"
+         (click)="selectSubmenuItem('profil-employes')">
+      <i class="fas fa-id-card"></i>
+      <span>Profils employés</span>
+    </div>
+    <div class="submenu-item"
+         [class.active]="isSubmenuItemActive('rapport-rh')"
+         (click)="selectSubmenuItem('rapport-rh')">
+      <i class="fas fa-chart-bar"></i>
+      <span>Rapport RH</span>
+    </div> -->
+    <!-- Ajoutez autres sous-éléments ici -->
+  </div>
+  
+
+  <!-- Répétez pour autres sections avec leurs sous-menus -->
+   <!-- Paies -->
+    <div class="sidebar-item has-submenu" [class.active]="isActive('paies')"  (click)="toggleSubmenu('paies')">
+    <a routerLink="paie" href="paie" class="sidebar-item-content">
+      <i class="fas fa-users"></i>
+      <span>Paie</span>
+    </a>
+    <i class="fas fa-chevron-right chevron-icon" 
+       [class.expanded]="isSubmenuExpanded('paies')"></i>
+  </div>
+  <div class="submenu" [class.expanded]="isSubmenuExpanded('paies')">
+    <!-- <div class="submenu-item" 
+         [class.active]="isSubmenuItemActive('liste-paies')"
+         (click)="selectSubmenuItem('liste-paies')">
+      <i class="fas fa-list"></i>
+      <span>Liste des Paies</span>
+    </div>
+    <div class="submenu-item"
+         [class.active]="isSubmenuItemActive('ajouter-paie')"
+         (click)="selectSubmenuItem('ajouter-paie')">
+      <i class="fas fa-user-plus"></i>
+      <span>Ajouter un employé</span>
+    </div> -->
+    <!-- Ajoutez autres sous-éléments ici -->
+  </div>
+
+  <!-- Congés -->
+  <div class="sidebar-item has-submenu" [class.active]="isActive('conges')"  (click)="toggleSubmenu('conges')">
+    <a routerLink="conge" href="conge" class="sidebar-item-content">
+      <i class="fas fa-users"></i>
+      <span>Employés</span>
+    </a>
+    <i class="fas fa-chevron-right chevron-icon" 
+       [class.expanded]="isSubmenuExpanded('conges')"></i>
+  </div>
+  <div class="submenu" [class.expanded]="isSubmenuExpanded('conges')">
+    <!-- <div class="submenu-item" 
+         [class.active]="isSubmenuItemActive('liste-conges')"
+         (click)="selectSubmenuItem('liste-conges')">
+      <i class="fas fa-list"></i>
+      <span>Liste des congés</span>
+    </div>
+    <div class="submenu-item"
+         [class.active]="isSubmenuItemActive('ajouter-conge')"
+         (click)="selectSubmenuItem('ajouter-conge')">
+      <i class="fas fa-user-plus"></i>
+      <span>Ajouter un congé</span>
+    </div> -->
+    <!-- Ajoutez autres sous-éléments ici -->
+  </div>
+
+ <!-- Formation -->
+  <div class="sidebar-item has-submenu" [class.active]="isActive('formations')"  (click)="toggleSubmenu('formations')">
+    <a routerLink="formation" href="formation" class="sidebar-item-content">
+      <i class="fas fa-users"></i>
+      <span>Formations</span>
+    </a>
+    <i class="fas fa-chevron-right chevron-icon" 
+       [class.expanded]="isSubmenuExpanded('formations')"></i>
+  </div>
+  <div class="submenu" [class.expanded]="isSubmenuExpanded('formations')">
+    <!-- <div class="submenu-item" 
+         [class.active]="isSubmenuItemActive('liste-formations')"
+         (click)="selectSubmenuItem('liste-formations')">
+      <i class="fas fa-list"></i>
+      <span>Liste des formations</span>
+    </div> -->
+    <div class="submenu-item"
+         [class.active]="isSubmenuItemActive('categories')"
+         (click)="selectSubmenuItem('categories')">
+     
+      <a routerLink="categories"> <i class="fas fa-book"></i>
+      <span>Categories</span>
+     </a>
+    </div>
+    <!-- Ajoutez autres sous-éléments ici -->
+  </div>
+</div>

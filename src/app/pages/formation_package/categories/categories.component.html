@@ -1,0 +1,146 @@
+
+    
+    <div class="main-content">
+      <div class="page-title">
+        <h2 class="text-2xl font-bold text-gray-800">Gestion des catégories de formation</h2>
+      </div>
+      
+      <!-- Formulaire de création/modification -->
+      <div class="form-section">
+        <h3 class="text-lg font-semibold mb-3">
+          {{ isEditMode ? 'Modifier la catégorie' : 'Ajouter une catégorie' }}
+        </h3>
+        
+        <div class="form-container">
+          <form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)" class="category-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nom de la catégorie</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  [(ngModel)]="currentCategory.name" 
+                  #name="ngModel"
+                  required 
+                  class="form-input"
+                  placeholder="Ex: Management, Informatique..."
+                >
+                <div *ngIf="name.invalid && name.touched" class="error-message">
+                  Le nom de la catégorie est requis
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea 
+                  id="description" 
+                  name="description" 
+                  [(ngModel)]="currentCategory.description" 
+                  #description="ngModel"
+                  required 
+                  class="form-textarea"
+                  placeholder="Description de la catégorie de formation..."
+                  rows="1"
+                ></textarea>
+                <div *ngIf="description.invalid && description.touched" class="error-message">
+                  La description est requise
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Choisir une icône</label>
+              <div class="icon-grid">
+                <div 
+                  *ngFor="let icon of availableIcons" 
+                  class="icon-option"
+                  [class.selected]="currentCategory.iconName === icon.name"
+                  (click)="currentCategory.iconName = icon.name"
+                >
+                  <i class="fas fa-{{icon.name}}"></i>
+                  <span>{{icon.label}}</span>
+                  <input 
+                    type="radio" 
+                    name="iconName" 
+                    [value]="icon.name" 
+                    [(ngModel)]="currentCategory.iconName"
+                    required
+                    style="display: none;"
+                  >
+                </div>
+              </div>
+              <div *ngIf="currentCategory.iconName === ''" class="error-message">
+                Veuillez sélectionner une icône
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button 
+                type="submit" 
+                class="btn-primary"
+                [disabled]="categoryForm.invalid"
+              >
+                <i class="fas fa-save"></i>
+                {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+              </button>
+              
+              <button 
+                type="button" 
+                class="btn-secondary"
+                (click)="resetForm()"
+                *ngIf="isEditMode"
+              >
+                <i class="fas fa-times"></i>
+                Annuler
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Affichage des catégories -->
+      <div class="categories-section">
+        <h3 class="text-lg font-semibold mb-3">Catégories existantes ({{categories.length}})</h3>
+        
+        <div class="categories-grid" *ngIf="categories.length > 0; else noCategories">
+          <div *ngFor="let category of categories" class="category-card">
+            <div class="card-header">
+              <div class="card-icon" [style.background-color]="'rgba(77, 157, 179, 0.1)'" [style.color]="'var(--accent-blue)'">
+                <i class="fas fa-{{category.iconName}}"></i>
+              </div>
+              <div class="card-content">
+                <h4 class="card-title">{{category.name}}</h4>
+                <p class="card-description">{{category.description}}</p>
+              </div>
+            </div>
+            
+            <div class="card-actions">
+              <button 
+                class="action-btn edit-btn" 
+                (click)="editCategory(category)"
+                title="Modifier"
+              >
+                <i class="fas fa-edit"></i>
+              </button>
+              <button 
+                class="action-btn delete-btn" 
+                (click)="deleteCategory(category.dbId!)"
+                title="Supprimer"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <ng-template #noCategories>
+          <div class="empty-state">
+            <i class="fas fa-folder-open"></i>
+            <h4>Aucune catégorie</h4>
+            <p>Commencez par ajouter votre première catégorie de formation</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  

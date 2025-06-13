@@ -1,4 +1,10 @@
 <div class="main-content">
+     <div *ngIf="successMessage" style="color: green; background: #d4edda; padding: 10px; border-radius: 4px;">
+        {{ successMessage }}
+    </div>
+    <div *ngIf="successMessage" style="color: green; background: #d4edda; padding: 10px; border-radius: 4px;">
+            {{ successMessage }}
+    </div>
     <div class="page-title">
         <h2 class="text-2xl font-bold text-gray-800">Gestion des formations</h2>
         <a class="btn-primary" href="add-training">
@@ -49,7 +55,7 @@
       
     </div>
 
-    <h3 class="text-lg font-semibold mb-3">Catalogue de formations</h3>
+    <h3 class="text-lg font-semibold mb-3"><a [routerLink]="['/categories']">Catalogue de formations</a></h3>
 
     <div class="catalog-grid">
         <div class="category-card">

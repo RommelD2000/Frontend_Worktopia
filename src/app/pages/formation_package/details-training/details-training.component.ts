@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { TrainingService } from '../../../training/training.service';
 import { TrainingDTO } from '../../../training/TrainingDTO';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ApiResponse } from '../../../common/api.response';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-details-training',
   standalone: true,
-  imports: [],
+  imports: [DatePipe, RouterModule],
   templateUrl: './details-training.component.html',
   styleUrl: './details-training.component.css'
 })
