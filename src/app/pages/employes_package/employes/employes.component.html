@@ -58,16 +58,33 @@
                         <div class="action-link">
 
                 <div class="action-buttons">
+
                     <a class="btn show" title="Show">
                         <i class="fas fa-eye"></i>
                     </a>
-                    <a   class="btn update" title="Update">
+
+                     <div class="flex justify-between items-center">
+                        <div>
+                            <div></div>
+                            <div class="text-xs text-gray-500"></div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        
+                       
+                    </div>
+                    <!-- <a class="btn show" title="Show">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a [routerLink]="['/update-employe', employe.dbId]"  class="btn update" title="Update">
                         <i class="fas fa-edit"></i> 
                     </a>
                     <!-- <a href="/delete-training" class="btn delete" title="Delete">
                         <i class="fas fa-trash-alt"></i> 
                     </a> -->
-                    <button class="btn delete" ><i class="fas fa-trash-alt"></i></button> 
+                    <!-- <button class="btn delete" ><i class="fas fa-trash-alt"></i></button>  --> 
                     
                     
                 </div>
@@ -78,7 +95,7 @@
 
             }
 
-            <div class="pagination">
+            <!-- <div class="pagination">
                 <div class="page-item">
                     <i class="fas fa-chevron-left"></i>
                 </div>
@@ -89,5 +106,5 @@
                 <div class="page-item">
                     <i class="fas fa-chevron-right"></i>
                 </div>
-            </div>
+            </div> -->
         </div>

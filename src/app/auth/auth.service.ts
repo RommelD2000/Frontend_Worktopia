@@ -50,4 +50,18 @@ export class AuthService {
   getAccessToken(): string | null {
     return localStorage.getItem(AUTH_CONFIG.STORAGE_KEY);
   }
+
+  getUserRole(){
+    const token = this.getAccessToken()
+    // @ts-ignore
+    let jwt = "";
+    if (token != null) {
+      jwt = JSON.parse(token);
+    }
+    const payloadBase64 =  jwt.split('.')[1];
+    const payloadJson = atob(payloadBase64);
+    const payload = JSON.parse(payloadJson);
+    return payload.role || payload.authorities[0];
+  }
+
 }

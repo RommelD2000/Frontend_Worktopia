@@ -26,9 +26,8 @@ export class LoginComponent {
   })
 
   onSubmit() {
-    /*console.log(this.loginForm.value)*/
+
     if (this.loginForm.valid) {
-     /* console.log(this.loginForm.value);*/
       this.authRequest = {
         email: this.loginForm.get('email')?.value ?? '',
         password: this.loginForm.get('password')?.value ?? ''
@@ -36,7 +35,15 @@ export class LoginComponent {
       this.authService.login(this.authRequest).subscribe({
         next: (result) => {
           if (this.authService.isLoggedIn()){
-            this.router.navigateByUrl('/dashboard').then(() => result.message);
+            const role = this.authService.getUserRole();
+            if (role === 'ROLE_ADMIN'){
+              this.router.navigateByUrl('/dashboard').then(() => result.message);
+            } else if (role==='ROLE_EMPLOYE'){
+              this.router.navigateByUrl('/interface-employes').then(() => result.message);
+            } else {
+              this.router.navigateByUrl('/unauthorized').then(() => result.message);
+            }
+
           }
         },
         error: (error) => {
