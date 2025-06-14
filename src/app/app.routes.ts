@@ -78,35 +78,35 @@ export const routes: Routes = [
       {
         path:'paie',
         component:PaieComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard]
       },
       {
         path:'conge',
         component:CongesComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard]
       },
       {
         path:'formation',
         component:FormationComponent,
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
       },
 
      {
       path: "add-training",
       component:AddTrainingComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard]
 
      },
      {
       path: "details-formation/:id",
       component:DetailsTrainingComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard]
 
      },
      {
       path: "edit-formation/:id",
       component:EditTrainingComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard]
 
      },{
       path : "formulaire-nv-employes",
