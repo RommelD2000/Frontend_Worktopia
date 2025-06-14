@@ -16,6 +16,7 @@ import { DetailsTrainingComponent } from './pages/formation_package/details-trai
 import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.components';
 import { UpdateEmployeComponent } from './pages/employes_package/update-employee/update-employe/update-employe.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
+import { DetailEmployeComponent } from './pages/employes_package/detail-employe/detail-employe/detail-employe.component';
 // import { EditTrainingComponent } from './pages/formation_package/edit-training/edit-training.component';
 
 
@@ -47,6 +48,7 @@ export const routes: Routes = [
      {path : "interface-employes", component:InterfaceEmployesComponent},
      {path : "profil-employes", component:ProfilEmployesComponent},
      {path : "update-employe", component:UpdateEmployeComponent}
+      {path : "detail-employe", component:DetailEmployeComponent}
 */
   {
     path:'',
@@ -125,6 +127,9 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data:{expectedRole: 'ROLE_EMPLOYE'}
   },
+  {path : "detail-employe", 
+    component:DetailEmployeComponent
+  }
 
 
     ]

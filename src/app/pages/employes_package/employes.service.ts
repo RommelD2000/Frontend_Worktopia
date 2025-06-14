@@ -7,7 +7,8 @@ const AUTH_CONFIG = {
   BASE_URL: 'http://localhost:8081/api/employees',
   END_POINTS: {
     SAVE: '/save',
-    GET_ALL: '/all'
+    GET_ALL: '/all',
+    DELETE: '/detele'
   },
   STORAGE_KEY: 'accessToken'
 } as const;
@@ -18,6 +19,10 @@ const AUTH_CONFIG = {
 
 
 export class EmployesService {
+  deleteEmploye(id: string) {
+    throw new Error('Method not implemented.');
+  }
+  apiUrl: any;
 
   constructor(private http: HttpClient) {}
    private buildUrl(endpoint: string): string {
@@ -47,6 +52,13 @@ export class EmployesService {
         )
       );
   }
+
+ deleteTraining(id: any): Observable<ApiResponse> {
+     
+     const url = `${AUTH_CONFIG.BASE_URL}${AUTH_CONFIG.END_POINTS.DELETE}/${id}`;
+     
+     return this.http.delete<ApiResponse>(url);
+   }
 
  
 }

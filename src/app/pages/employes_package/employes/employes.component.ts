@@ -13,6 +13,22 @@ import { ApiResponse } from '../../../common/api.response';
   styleUrl: './employes.component.css'
 })
 export class EmployesComponent {
+deleteEmploye(id: any): void {
+		console.log(id)
+		if (confirm("Voulez-vous vraiment supprimer cet employe ?")) {
+			this.employeService.deleteTraining(id).subscribe({
+				next: (result: ApiResponse) => {
+					console.log('Réponse du serveur:', result);
+					alert(result.message);
+					this.getEmployes();
+				},
+				error: (err) => {
+					console.error('Erreur lors de la suppression', err);
+				}
+			});
+		}
+	}
+
   
   employesList: EmployeeDTO[] = [];
 
@@ -24,16 +40,19 @@ export class EmployesComponent {
   }
 
 
-private getEmployes() {
-  console.log("a")
-    this.employeService.getAll().subscribe(
-      {
-        next: (result: ApiResponse)=>{
-            this.employesList = result.data as EmployeeDTO[]
-        },
-        error:()=> console.log("Erreur ICI")
-      }
-    )
-    }
-    }
+        private getEmployes() {
+          console.log("a")
+            this.employeService.getAll().subscribe(
+              {
+                next: (result: ApiResponse)=>{
+                    this.employesList = result.data as EmployeeDTO[]
+                },
+                error:()=> console.log("Erreur ICI")
+              }
+            )
+            }
+
+
+            
+}
     
