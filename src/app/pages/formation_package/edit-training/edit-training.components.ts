@@ -15,6 +15,7 @@ import { ApiResponse } from '../../../common/api.response';
   styleUrl: './edit-training.component.css'
 })
 export class EditTrainingComponent {
+  successMessage: String | null = null;
   editTrainingForm!:FormGroup
   
 
@@ -90,7 +91,14 @@ export class EditTrainingComponent {
 
 this.trainingService.editTraining(+this.route.snapshot.paramMap.get('id')!, trainingRequest).subscribe({
   next:(data: ApiResponse)=>{
-    this.router.navigateByUrl("formation");
+    this.successMessage = data.message;
+
+          setTimeout(() => {
+            this.successMessage = null
+          }, 10000)
+
+    // this.router.navigateByUrl("formation");
+    
   },
   error: (err) => {
 					console.error('Erreur lors de la mise a jour', err);

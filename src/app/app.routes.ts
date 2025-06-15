@@ -82,30 +82,33 @@ export const routes: Routes = [
       {
         path:'conge',
         component:CongesComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        data:{expectedRole: 'ROLE_EMPLOYE'}
       },
       {
         path:'formation',
         component:FormationComponent,
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
+        data:{expectedRole: 'ROLE_EMPLOYE'}
       },
 
      {
       path: "add-training",
       component:AddTrainingComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard],
+        data:{expectedRole: 'ROLE_EMPLOYE'}
 
      },
      {
       path: "details-formation/:id",
       component:DetailsTrainingComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard]
 
      },
      {
       path: "edit-formation/:id",
       component:EditTrainingComponent,
-        canActivate: [authGuard]
+        // canActivate: [authGuard]
 
      },{
       path : "formulaire-nv-employes",
@@ -113,7 +116,7 @@ export const routes: Routes = [
     // canActivate: [authGuard]
   },
 
-  {path : "profil-employes",
+  {path : "profil-employes/:id",
     component:ProfilEmployesComponent
   },
 
@@ -123,14 +126,15 @@ export const routes: Routes = [
 
   {path : "interface-employes",
     component:InterfaceEmployesComponent,
-    canActivate: [authGuard],
-    data:{expectedRole: 'ROLE_EMPLOYE'}
+    // canActivate: [authGuard],
+    // data:{expectedRole: 'ROLE_EMPLOYE'}
   },
 
   { 
       path : "categories", 
       component:CategoriesComponent,
-    canActivate: [authGuard]
+    // canActivate: [authGuard],
+    data:{expectedRole: 'ROLE_EMPLOYE'}
   },
 
     ]

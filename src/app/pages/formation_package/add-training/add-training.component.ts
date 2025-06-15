@@ -85,8 +85,8 @@ export class AddTrainingComponent {
 
       this.trainingService.addTraining(trainingRequest).subscribe({
         next:(result: ApiResponse )=>{
-            this.successMessage = result.message;
           this.router.navigateByUrl("/formation"),
+            this.successMessage = result.message;
           setTimeout(()=>{
             this.successMessage = null
           }, 10000)

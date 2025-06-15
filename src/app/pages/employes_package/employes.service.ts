@@ -2,12 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ApiResponse } from '../../common/api.response';
+import { EmployeeDTO } from './employee.DTO';
 
 const AUTH_CONFIG = {
   BASE_URL: 'http://localhost:8081/api/employees',
   END_POINTS: {
     SAVE: '/save',
-    GET_ALL: '/all'
+    GET_ALL: '/all',
+    GET_BY_ID: '/getbyid',
+    UPDATE: '/update',
+    // DELETE: '/delete'
   },
   STORAGE_KEY: 'accessToken'
 } as const;
@@ -48,5 +52,8 @@ export class EmployesService {
       );
   }
 
- 
+ getEmployeebyId(id: any): Observable<EmployeeDTO>{
+  console.log("employ contoller",`${AUTH_CONFIG.BASE_URL}${AUTH_CONFIG.END_POINTS}/${id}`)
+  return this.http.get<EmployeeDTO>(`http://localhost:8081/api/employees/getbyid/${id}`)
+ }
 }

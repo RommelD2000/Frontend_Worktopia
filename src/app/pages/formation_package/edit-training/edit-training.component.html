@@ -193,7 +193,9 @@
                     </div>
                 </div>
             </div> 
-            
+            <div *ngIf="successMessage" style="color: green; background: #d4edda; padding: 10px; border-radius: 4px;">
+        {{ successMessage }}
+    </div>
             <div class="form-buttons">
                 <button class="btn btn-secondary">
                     <i class="fas fa-times"></i>
@@ -206,4 +208,5 @@
             </div>
         
    </form>
+    
 </div>

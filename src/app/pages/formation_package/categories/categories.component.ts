@@ -23,7 +23,9 @@ interface Categorie {
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent {
-categories: Category[] = [];
+  successMessage: String | null = null;
+
+  categories: Category[] = [];
   currentCategory: Category = {
     name: '',
     description: '',
@@ -48,7 +50,9 @@ categories: Category[] = [];
     { name: 'globe', label: 'International' }
   ];
 
-  constructor(private categoryService: CategoryServiceService) {}
+  constructor(private categoryService: CategoryServiceService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.loadCategories();
@@ -56,11 +60,11 @@ categories: Category[] = [];
 
   loadCategories(): void {
     this.categoryService.getAllCategories().subscribe(
-     {
-      next: (result: ApiResponse) => {
-					this.categories= result.data as Category[]
-				},
-				error: (err) => console.log(err)
+      {
+        next: (result: ApiResponse) => {
+          this.categories = result.data as Category[]
+        },
+        error: (err) => console.log(err)
       }
     );
   }
@@ -77,35 +81,38 @@ categories: Category[] = [];
 
   createCategory(): void {
     this.categoryService.createCategory(this.currentCategory).subscribe(
-       {
-      next: (result: ApiResponse) => {
-					this.categories.push(result.data);
-           this.resetForm();
+      {
+        next: (result: ApiResponse) => {
 
-				},
-				error: (err) => console.log(err)
+          this.resetForm();
+          this.successMessage = result.message;
+
+          setTimeout(() => {
+            this.successMessage = null
+          }, 10000)
+          this.loadCategories();
+
+        },
+        error: (err) => console.log(err)
       })
-    //   (data) => {
-    //     this.categories.push(data);
-    //     this.resetForm();
-    //   },
-    //   (error) => {
-    //     console.error('Erreur lors de la création de la catégorie:', error);
-    //   }
-    // );
+
   }
 
   updateCategory(): void {
     if (this.editingCategoryId) {
       this.categoryService.updateCategory(this.editingCategoryId, this.currentCategory).subscribe({
-      next: (result: ApiResponse) => {
-					// this.categories.push(result.data);
-          this.resetForm();
+        next: (result: ApiResponse) => {
+          this.successMessage = result.message;
 
-				},
-		 		// error: (err) => console.log(err)
+          setTimeout(() => {
+            this.successMessage = null
+          }, 10000)
+          this.resetForm();
+          this.loadCategories();
+
+        },
       }
-        
+
       );
     }
   }
@@ -118,13 +125,26 @@ categories: Category[] = [];
 
   deleteCategory(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')) {
-      this.categoryService.deleteCategory(id).subscribe(
-        () => {
-          this.categories = this.categories.filter(c => c.dbId !== id);
+      this.categoryService.deleteCategory(id).subscribe({
+        next: (result: ApiResponse) => {
+          this.successMessage = result.message;
+
+          setTimeout(() => {
+            this.successMessage = null
+          }, 10000)
+
+          this.loadCategories();
+
         },
-        (error) => {
-          console.error('Erreur lors de la suppression de la catégorie:', error);
+        error: (err) => {
+          console.log(err),
+            this.successMessage = "Cannot been deleted because it contains trainings";
+
+          setTimeout(() => {
+            this.successMessage = null
+          }, 10000)
         }
+      }
       );
     }
   }
@@ -143,6 +163,6 @@ categories: Category[] = [];
     const icon = this.availableIcons.find(i => i.name === iconName);
     return icon ? icon.label : iconName;
   }
- 
- 
+
+
 }
